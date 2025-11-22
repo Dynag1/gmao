@@ -1,0 +1,301 @@
+/* ============= BASE GENERAL ============ */
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f7fb;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #3498db;
+    color: #fff;
+    padding: 1em 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 2em;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin-left: 32px;
+    display: block;
+}
+
+/* ----- MENU MODERNE ----- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    margin-right: 16px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 16px;
+    z-index: 100;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+.nav-items-right, .nav-items-left {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.nav-items-right {
+    margin-left: auto;
+    gap: 18px;
+}
+.nav-items-left {
+    margin-right: 32px;
+}
+.navbar a {
+    color: #fff;
+    background: #3498db;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    margin-bottom: 6px;
+}
+.navbar a:hover {
+    background: #21698e;
+    color: #e0f0ff;
+    text-decoration: none;
+}
+.account-link {
+    font-size: 0.95em;
+    color: #e8f0fe;
+    font-weight: normal;
+}
+
+.logout-link {
+    background: #c0392b;
+    color: #fff;
+    margin-left: 20px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.logout-link:hover { background: #a52121; }
+
+/* --------- RESPONSIVE MENU MOBILE ---------- */
+@media (max-width: 700px) {
+    .menu-toggle {
+        display: block;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-end;
+        transition: max-height 0.3s;
+        max-height: 0;
+        overflow: hidden;
+        background: #3498db;
+        width: 100vw;
+        position: absolute;
+        top: 60px; /* Hauteur header */
+        left: 0;
+        z-index: 100;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+    .navbar.open {
+        max-height: 320px;
+        padding-bottom: 10px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .nav-items-right, .nav-items-left {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1px;
+    }
+
+    .navbar a, .logout-link {
+        width: 96vw;
+        margin: 0 2vw 6px 0;
+        font-size: 1em;
+    }
+    .logo {
+        margin-left: 12px;
+    }
+}
+
+main {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2em;
+}
+
+@media (max-width: 900px) {
+    main {
+        max-width: 99vw;
+        padding: 1em;
+    }
+}
+
+/* ============= TABLEAUX RESPONSIVE ============= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: #fff;
+    word-break: break-word;
+}
+th, td {
+    border: 1px solid #d9dee3;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background: #e8f0fe;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    table, thead, tbody, th, tr { display: block; width: 100%; }
+    th { display: none; }
+    tr { margin-bottom: 16px; box-shadow: 0 2px 6px 0 rgba(0,0,0,0.04); background: #fff; }
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #d9dee3;
+        text-align: left;
+        position: relative;
+        padding: 10px 4px;
+    }
+    td:before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+        color: #3498db;
+        flex: 0 0 50%;
+        max-width: 60%;
+        font-size: 0.98em;
+    }
+}
+
+/* =========== FORMULAIRES & BOUTONS ======== */
+form {
+    margin-bottom: 30px;
+}
+input, textarea, select, button {
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    border-radius: 4px;
+    border: 1px solid #b1b8cd;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+button {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    min-width: 100px;
+    font-size: 1em;
+    padding: 10px 18px;
+    border-radius: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: background 0.18s;
+}
+button:hover, input[type="submit"]:hover {
+    background: #21698e;
+}
+
+/* ============ MESSAGES & ALERTES ============ */
+.message {
+    background: #e8f0fe;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.error {
+    color: #c0392b;
+}
+.succes {
+    color: #27ae60;
+}
+
+/* Formulaires responsives */
+@media (max-width: 600px) {
+    form input, form select, form textarea, form button {
+        width: 100%;
+        min-width: 0;
+    }
+}
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0 8px 0;
+    font-size: 1em;
+    letter-spacing: 1.5px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    z-index: 1000;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+}
+
+/* Pour laisser de la place au footer sur mobile & desktop */
+body {
+    padding-bottom: 48px; /* ou plus selon la taille du footer */
+}
+.lien-voir-rouge {
+    color: #c0392b !important;
+    font-weight: bold;
+    border-bottom: 2px solid #c0392b;
+    background: #fff5f5;
+    border-radius: 6px;
+    padding: 4px 8px;
+    transition: background 0.2s;
+    display: inline-block;
+    text-align: center;
+}
+.lien-voir-rouge:hover {
+    background: #ffeded;
+}
+
+.lien-voir-vert {
+    color: #27ae60 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #27ae60;
+    background: #f7fff5;
+    border-radius: 6px;
+    padding: 4px 8px;
+    transition: background 0.2s;
+    display: inline-block;
+    text-align: center;
+}
+.lien-voir-vert:hover {
+    background: #defee4;
+}
+
