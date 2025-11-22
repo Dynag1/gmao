@@ -9,6 +9,6 @@
 
 ## Installation
 
-Créez un base de donnée
-Renseignez le fichier "conf/conf" avec toutes les informations Pensez bien à modifier la phrase d'encryption
-Allez sur https://votre_site.fr/install.php
+- Créez un base de donnée
+- Renseignez le fichier "conf/conf" avec toutes les informations Pensez bien à modifier la phrase d'encryption
+- Allez sur https://votre_site.fr/install.php
