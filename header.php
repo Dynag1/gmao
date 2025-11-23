@@ -22,22 +22,22 @@ $user_name = isset($_SESSION['user_id'])
     <button class="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
     <nav class="navbar">
         <div class="nav-items-right">
-            <a href="dashboard.php">Accueil</a>
+            <a href="/dashboard.php">Accueil</a>
             <?php if (isset($_SESSION['role']) && $_SESSION['role']=='admin'): ?>
-                <a href="admin_sites.php">Sites</a>
-                <a href="admin_cameras.php">Caméras</a>
-                <a href="admin_users.php">Utilisateurs</a>
+                <a href="/admin/admin_sites.php">Sites</a>
+                <a href="/admin/admin_cameras.php">Caméras</a>
+                <a href="/admin/admin_users.php">Utilisateurs</a>
             <?php endif; ?>
             
 
-            <a href="mon_compte.php">
+            <a href="/mon_compte.php">
                 <?php if($user_name): ?>
                     <?= htmlspecialchars($user_name) ?> <span class="account-link">(Mon compte)</span>
                 <?php else: ?>
                     Mon compte
                 <?php endif; ?>
             </a>
-            <a href="logout.php" class="logout-link">Déconnexion</a>
+            <a href="/logout.php" class="logout-link">Déconnexion</a>
         </div>
     </nav>
 </header>
