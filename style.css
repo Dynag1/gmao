@@ -264,6 +264,16 @@ button:hover, input[type="submit"]:hover {
     z-index: 1000;
     box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
 }
+.footer-fixed a {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.footer-fixed a:hover {
+    color: #e0f0ff !important;
+    text-decoration: none !important;
+}
 
 /* Pour laisser de la place au footer sur mobile & desktop */
 body {
@@ -297,5 +307,11 @@ body {
 }
 .lien-voir-vert:hover {
     background: #defee4;
+}
+.btn {
+  background: #3498db; color: #fff; text-decoration: none;
+  padding: 8px 20px; border-radius: 16px;
+  display: inline-block; margin-top: 20px;
+  font-weight: bold; font-size: 1em;
 }
 
