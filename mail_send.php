@@ -20,23 +20,22 @@ function send_mail($to, $subject, $body, $reply_to=null) {
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = $mail_port;
 
-        $mail->setFrom($mail_mail, 'Infracity');
+        $mail->setFrom($mail_mail, $marque);
         $mail->addAddress($to);
         if ($reply_to) $mail->addReplyTo($reply_to);
 
+        $mail->CharSet   = 'UTF-8';      // <---- accents !
+        $mail->Encoding  = 'base64';     // <---- facultatif mais bien pour le HTML
         $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body    = $body;
 
         $mail->send();
-        #echo("OK");
-        #echo($to);
         return true;
     } catch (Exception $e) {
-        #echo "Erreur envoi mail : " . $mail->ErrorInfo;
-        // Ou pour affichage plus exhaustif :
         // echo "Erreur exception : " . $e->getMessage();
         return false;
     }
 }
+
 ?>

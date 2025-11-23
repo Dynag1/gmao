@@ -1,6 +1,6 @@
 <?php header('Content-Type: text/html; charset=utf-8'); 
 if (isset($_SESSION['id'])) header('Location: dashboard.php');
-
+require 'conf/conf.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,7 +8,7 @@ if (isset($_SESSION['id'])) header('Location: dashboard.php');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Infracity - GMAO</title>
+    <title><?php echo($marque) ?> - GMAO</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@ $user_name = isset($_SESSION['user_id'])
     : '';
 ?>
 <header>
-    <a href=dashboard.php><span class="logo">Infracity</span></a>
+    <a href=dashboard.php><span class="logo"><?php echo($marque) ?></span></a>
     <button class="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
     <nav class="navbar">
         <div class="nav-items-right">

@@ -92,7 +92,7 @@ else {
 <?php endif; ?>
 
 <?php if ($role != 'admin'): ?>
-    <a href="signaler.php" class="btn-main">Signaler une panne</a>
+    <a href="signaler.php" class="btn">Signaler une panne</a>
 <?php endif; ?>
 
 <!-- Tableaux tickets ouverts -->
@@ -100,7 +100,7 @@ else {
 <table id="openTable">
     <tr>
         <th>Site</th>
-        <th>Caméra</th>
+        <th>cam</th>
         <th>Description</th>
         <th>Statut</th>
         <?php if ($role == 'admin'): ?>
@@ -122,8 +122,11 @@ else {
 ?>
     <tr>
         <td data-label="Site"><?= htmlspecialchars(decrypt_data($p['site'])) ?></td>
-        <td data-label="Caméra"><?= htmlspecialchars(decrypt_data($p['camera'])) ?></td>
-        <td data-label="Description"><?= htmlspecialchars(decrypt_data($p['description'])) ?></td>
+        <td data-label="cam"><?= htmlspecialchars(decrypt_data($p['camera'])) ?></td>
+        <td data-label="Description" style="max-width:250px;word-break:break-word;white-space:pre-line;">
+            <?= nl2br(htmlspecialchars(decrypt_data($p['description']))) ?>
+        </td>
+
         <td data-label="Statut"><?= htmlspecialchars($p['statut']) ?></td>
         <?php if ($role == 'admin'): ?>
         <td data-label="Client"><?= htmlspecialchars(decrypt_data($p['client'])) ?></td>
@@ -142,7 +145,7 @@ else {
     <table id="closedTable">
         <tr>
             <th>Site</th>
-            <th>Caméra</th>
+            <th>cam</th>
             <th>Description</th>
             <th>Statut</th>
             <?php if ($role == 'admin'): ?>
@@ -163,11 +166,14 @@ else {
     ?>
         <tr>
             <td data-label="Site"><?= htmlspecialchars(decrypt_data($p['site'])) ?></td>
-            <td data-label="Caméra"><?= htmlspecialchars(decrypt_data($p['camera'])) ?></td>
-            <td data-label="Description"><?= htmlspecialchars(decrypt_data($p['description'])) ?></td>
+            <td data-label="cam"><?= htmlspecialchars(decrypt_data($p['camera'])) ?></td>
+            <td data-label="Description" style="max-width:250px;word-break:break-word;white-space:pre-line;">
+                <?= nl2br(htmlspecialchars(decrypt_data($p['description']))) ?>
+            </td>
+
             <td data-label="Statut"><?= htmlspecialchars($p['statut']) ?></td>
             <?php if ($role == 'admin'): ?>
-            <td data-label="Client"><?= htmlspecialchars($p['client']) ?></td>
+            <td data-label="Client"><?= htmlspecialchars(decrypt_data($p['client'])) ?></td>
             <?php endif; ?>
             <td data-label="Détail">
                 <a href="detail_panne.php?panne_id=<?= $p['id'] ?>" class="<?= $lien_class ?>">Voir</a>
